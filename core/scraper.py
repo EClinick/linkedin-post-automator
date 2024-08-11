@@ -46,7 +46,7 @@ class Scraper:
 
         # Remove empty lines, and multi-space and join
         all_text_clean = re.sub(r'\s+', ' ', (' '.join(line for line in lines if line)))
-
+        print(all_text_clean[0:self.character_limit])
         return all_text_clean[0:self.character_limit]
 
     def rss_parse(self, url):

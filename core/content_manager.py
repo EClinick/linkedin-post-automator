@@ -1,10 +1,10 @@
 from core.linkedin import LinkedIn
 from core.chatgpt import ChatGpt
 from core.scraper import Scraper
-
+import requests
 import random
 from re import sub
-
+import json
 from utils import get_file_data, custom_print
 
 
@@ -79,3 +79,15 @@ class ContentManager:
 
         # linkedin.post_file(gpt_response, ["media", "burndown.png"])
         linkedin.post(gpt_response)
+
+         # Send gpt_response to Discord webhook
+        webhook_url = "https://discord.com/api/webhooks/1237490944752881837/elrM7uMAEA4HpN78WKzJdkQDzDg4Ty1Z5Ha59L9F46va_z0v7Cdvo85XVqk6QOlDTZn7"
+        data = {
+            "content": gpt_response,  # message content
+            "username": "Webhook",  # optional: change the username
+        }
+        response = requests.post(webhook_url, data=json.dumps(data), headers={"Content-Type": "application/json"})
+
+        if response.status_code != 204:
+            raise ValueError(f"Request to webhook returned an error {response.status_code}, the response is:\n{response.text}")
+

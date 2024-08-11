@@ -1,4 +1,4 @@
-# 🤖 LinkedIn Post Automator
+  # 🤖 LinkedIn Post Automator
 
 **LinkedIn Post Automator** is a versatile tool designed to generate content using OpenAI's GPT. It crafts compelling LinkedIn post content in response to user prompts and can optionally incorporate scraped data from designated websites. This tool ensures that fresh and captivating content is produced regularly without manual intervention.
 
